@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="justify content-center">Sistema</h1>
+    <hr>
+    <a href="registrar/"><button class="btn btn-primary">Registrar</button></a>
+    <a href="listado/"><button class="btn btn-primary">Listado</button></a>
+
+</div>
+<div class="container">
+    <div class="col-12">
+        <a href="{% url 'api_json_institucion' %}" class="btn btn-primary "> API Solo Json Reservas</a>
+    </div>
+    <div class="col-12">
+        <a href="{% url 'reserva_list' %}" class="btn btn-primary "> API Clase View</a>
+
+    </div>
+    <div class="col-12">
+        <a href="{% url 'listar_institucion' %}" class="btn btn-primary "> API Funcion View</a>
+    </div>
+</div>
+
+{% endblock content %}
+
+

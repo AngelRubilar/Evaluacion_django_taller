@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div>
+        <form method="post">
+            <table class="table">
+                {% csrf_token %}
+                {{form.as_table}}               
+            </table>
+            <input type="submit" value="AGREGAR" class="btn btn-info">
+        </form>
+        <a href="listado/" class="btn btn-info mt-5">Lista Reservas</a>
+        <a href="/" class="btn btn-info mt-5">Volver</a>
+    </div>
+
+{% endblock content %}
+
+
+

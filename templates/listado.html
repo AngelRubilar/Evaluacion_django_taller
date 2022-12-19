@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="justify-container-center">
+            <h1>Listado de resnarios</h1>
+        </div>
+        <hr>
+        {%if reserva %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Institución</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for res in reserva %}
+                <tr>
+                    <td>{{res.id}}</td>
+                    <td>{{res.nombre}}</td>
+                    <td>{{res.telefono}}</td>
+                    <td>{{res.institucion}}</td>
+                    <td>{{res.fecha}}</td>
+                    <td>{{res.hora}}</td>
+                    <td>{{res.estado_resvas}}</td>
+                    <td>{{res.observaciones}}</td>
+                    <td><a href="{% url 'editarReserva' res.id %}" class="btn btn-warning">Editar</a></td>
+                    <td><a href="{% url 'eliminarReserva' res.id %}" class="btn btn-danger">Eliminar</a></td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        {% else %}
+        <div class="alert alert-warning " role="alert">
+            <strong>No se encuentran reservas en el sistema</strong>
+        </div>
+        {% endif %} 
+
+        <a href="/" class="btn btn-danger">Volver</a>
+        <a href="../registrar" class="btn btn-info float-end">AGREGAR RESERVA</a>
+    </div>
+{% endblock content %}
